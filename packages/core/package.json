@@ -1,0 +1,57 @@
+{
+  "name": "unocss-preset-cx",
+  "version": "0.0.1",
+  "description": "蝉选 unocss 预设",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrapevineLin/unocss-preset-cx.git"
+  },
+  "keywords": [
+    "unocss"
+  ],
+  "author": "reslear <https://github.com/reslear>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrapevineLin/unocss-preset-cx/issues"
+  },
+  "homepage": "https://github.com/GrapevineLin/unocss-preset-cx#readme",
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.1",
+    "webpack-bundle-analyzer": "^4.8.0"
+  },
+  "peerDependencies": {
+    "unocss": "^0.53.1"
+  },
+  "peerDependenciesMeta": {
+    "unocss": {
+      "optional": true
+    },
+    "@unocss/nuxt": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@unocss/preset-wind": "^0.53.1"
+  }
+}
