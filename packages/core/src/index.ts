@@ -85,4 +85,4 @@ export function presetCx(option: PresetCXOption = {}): Preset {
         postprocess: getPostprocess(option as Required<PresetCXOption>)
     }
 }
-
+export default presetCx
