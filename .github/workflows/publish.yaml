@@ -45,11 +45,6 @@ jobs:
       - name: Pnpm Build
         run: pnpm build
 
-      - name: Release
-        run: pnpm release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-
       - name: Publish to NPM
         run: pnpm --filter @unocss-cx/preset-cx  publish --access public --no-git-checks
         env:
