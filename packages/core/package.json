@@ -1,5 +1,5 @@
 {
-  "name": "@unocss-cx/preset-cx",
+  "name": "unocss-preset-cx",
   "version": "0.0.1",
   "description": "蝉选 unocss 预设",
   "main": "./dist/index.cjs",

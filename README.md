@@ -1,4 +1,4 @@
-# @unocss-cx/preset-cx
+# unocss-preset-cx
 
 蝉选 Unocss 规则预设，包含了 [tailwind](https://tailwindcss.com/docs/) ([Wind preset](https://unocss.dev/presets/wind))规则，以及对旧原子式的支持、Rem 和 Rpx 单位的转化。
 
@@ -25,9 +25,9 @@ pnpm add -D @unocss/webpack
 安装本预设：
 
 ```bash
-npm i @unocss-cx/preset-cx --save-dev # with npm
-yarn add @unocss-cx/preset-cx -D # with yarn
-pnpm add @unocss-cx/preset-cx -D # with pnpm
+npm i unocss-preset-cx --save-dev # with npm
+yarn add unocss-preset-cx -D # with yarn
+pnpm add unocss-preset-cx -D # with pnpm
 ```
 
 
@@ -46,7 +46,7 @@ pnpm add @unocss-applet/transformer-applet -D # with pnpm
 import { defineConfig } from 'unocss'
 // webpack:
 // import { defineConfig } from '@unocss/webpack'
-import presetCx from '@unocss-cx/preset-cx'
+import presetCx from 'unocss-preset-cx'
 
 export default defineConfig({
     theme: {
@@ -64,7 +64,7 @@ uni-app:
 
 ```ts
 import { defineConfig } from '@unocss/webpack'
-import presetCx from '@unocss-cx/preset-cx'
+import presetCx from 'unocss-preset-cx'
 import transformerApplet from '@unocss-applet/transformer-applet'
 
 export default defineConfig({

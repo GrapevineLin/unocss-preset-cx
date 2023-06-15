@@ -1,5 +1,5 @@
 {
-  "name": "@unocss-preset-cx/example",
+  "name": "@unocss-cx/example",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "pinia": "^2.0.32",
     "unocss": "^0.51.4",
-    "@unocss-cx/preset-cx": "workspace: *",
+    "unocss-preset-cx": "workspace: *",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },

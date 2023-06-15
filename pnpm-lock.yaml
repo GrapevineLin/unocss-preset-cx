@@ -48,15 +48,15 @@ importers:
 
   packages/example:
     dependencies:
-      '@unocss-cx/preset-cx':
-        specifier: 'workspace: *'
-        version: link:../core
       pinia:
         specifier: ^2.0.32
         version: 2.0.34(typescript@4.8.4)(vue@3.2.47)
       unocss:
         specifier: ^0.51.4
         version: 0.51.4(postcss@8.4.21)(vite@4.2.1)
+      unocss-preset-cx:
+        specifier: 'workspace: *'
+        version: link:../core
       vue:
         specifier: ^3.2.47
         version: 3.2.47

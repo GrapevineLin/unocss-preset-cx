@@ -1,6 +1,6 @@
 // uno.config.ts
 import {defineConfig} from 'unocss'
-import presetCx from '@unocss-cx/preset-cx'
+import presetCx from 'unocss-preset-cx'
 
 export default defineConfig({
     theme: {
