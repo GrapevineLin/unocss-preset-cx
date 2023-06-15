@@ -1,5 +1,5 @@
 {
-  "name": "unocss-preset-cx",
+  "name": "@unocss-cx/monorepo",
   "version": "0.0.1",
   "description": "蝉选 unocss 预设",
   "main": "./dist/index.cjs",
@@ -16,10 +16,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm --filter unocss-preset-cx build",
+    "build": "pnpm --filter @unocss-cx/preset-cx build",
     "dev": "pnpm --filter @unocss-preset-cx/example dev",
-    "clean": "rimraf node_modules packages/core/node_modules packages/core/dist packages/example/node_modules",
-    "release": "pnpm --filter unocss-preset-cx publish -f --access public --publish-branch publish"
+    "clean": "rimraf node_modules packages/core/node_modules packages/core/dist packages/example/node_modules"
   },
   "repository": {
     "type": "git",
@@ -54,7 +53,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@unocss-preset-cx/example": "workspace:^0.0.0",
     "vite": "^4.1.4"
   }
 }
