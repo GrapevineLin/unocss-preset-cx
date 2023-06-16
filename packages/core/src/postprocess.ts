@@ -80,7 +80,9 @@ export const remClassTransform: (remTransform: remTransformType) => Postprocesso
         util.entries.forEach((i) => {
             const value = i[1]
             if (typeof value === 'string') {
-                i[1] = value.replace(/(-?[.\d]+)r?px/g, (v) => `${remTransform(+v.slice(0, 2))}${unit}`)
+                i[1] = value.replace(/(-?[.\d]+)r?px/g, (_,size) => {
+                    return `${remTransform(size)}${unit}`
+                })
             }
         })
     }
