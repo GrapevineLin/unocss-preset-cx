@@ -82,6 +82,7 @@ export function presetCx(option: PresetCXOption = {}): Preset {
             [/^grid-template-columns-(\d+)$/, ([, d]) => ({'grid-template-columns': `repeat(${d}, 1fr)`})],
             [/^grid-gap-?(\d+)$/, ([, d]) => ({'grid-gap': `${d}px`})]
         ],
+        shortcuts: [{ 'flex-center': 'flex items-center justify-center' },{ 'flex-center-col': 'flex-center flex-col' }],
         postprocess: getPostprocess(option as Required<PresetCXOption>)
     }
 }
