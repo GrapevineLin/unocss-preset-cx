@@ -24,12 +24,19 @@ export interface PresetCXOption extends PresetOptions {
          */
         transformUniH5PX?: boolean
     },
+    /**
+     * 支持旧原子式的规则
+     *
+     * @default false
+     */
+    legacySupport?: boolean
     // 以 r 结尾的 css 类，如何被转为 rem
     remTransform?: remTransformType
 }
 
 export function presetCx(option: PresetCXOption = {}): Preset {
     option.uni ??= {}
+    option.legacySupport = option.legacySupport ?? false
     option.uni.enable = option.uni?.enable ?? false
     option.uni.isH5 = option.uni?.isH5 ?? process.env.UNI_PLATFORM === 'h5'
     option.uni.transformUniH5PX = option.uni?.transformUniH5PX ?? true
@@ -39,11 +46,13 @@ export function presetCx(option: PresetCXOption = {}): Preset {
         // 解决小程序不支持 * 选择器
         preflightRoot: ['page,::before,::after']
     } : {}
+
+
     return {
         name: 'unocss-preset-cx',
         theme,
         presets: [presetWind()],
-        rules: [
+        rules: option.legacySupport ? [
             [
                 /^(m|p)(t|b|l|r|x|y)?-?(\d+)(r?)$/,
                 ([, marginOrPadding, position, value]) => {
@@ -81,9 +90,10 @@ export function presetCx(option: PresetCXOption = {}): Preset {
             [/^flex-?(\d+)$/, ([, d]) => ({flex: d})],
             [/^grid-template-columns-(\d+)$/, ([, d]) => ({'grid-template-columns': `repeat(${d}, 1fr)`})],
             [/^grid-gap-?(\d+)$/, ([, d]) => ({'grid-gap': `${d}px`})]
-        ],
-        shortcuts: [{ 'flex-center': 'flex items-center justify-center' },{ 'flex-center-col': 'flex-center flex-col' }],
+        ] : [],
+        shortcuts: [{'flex-center': 'flex items-center justify-center'}, {'flex-center-col': 'flex-center flex-col'}],
         postprocess: getPostprocess(option as Required<PresetCXOption>)
     }
 }
+
 export default presetCx

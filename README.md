@@ -108,6 +108,12 @@ export interface PresetCXOption extends PresetOptions {
          */
         transformUniH5PX?: boolean
     },
+    /**
+     * 支持旧原子式的规则
+     *
+     * @default false
+     */
+    legacySupport?: boolean
     // 以 r 结尾的 css 类，如何被转为 rem
     remTransform?: remTransformType
 }
