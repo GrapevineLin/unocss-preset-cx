@@ -30,7 +30,6 @@ yarn add unocss-preset-cx -D # with yarn
 pnpm add unocss-preset-cx -D # with pnpm
 ```
 
-
 如果是 uni 小程序，那么你需要额外安装一个兼容包-[@unocss-applet/transformer-applet](https://github.com/unocss-applet/unocss-applet/tree/main/packages/transformer-applet)：
 
 ```bash
@@ -39,6 +38,11 @@ yarn add @unocss-applet/transformer-applet -D # with yarn
 pnpm add @unocss-applet/transformer-applet -D # with pnpm
 ```
 
+在入口文件(`main.js`)添加导入：
+
+```js
+import 'uno.css'
+```
 
 ## Usage
 
