@@ -48,19 +48,20 @@ import 'uno.css'
 
 ```ts
 import { defineConfig } from 'unocss'
+
 // webpack:
 // import { defineConfig } from '@unocss/webpack'
 import presetCx from 'unocss-preset-cx'
 
 export default defineConfig({
-    theme: {
-        colors: {
-            // 自定义主题色, 可选
-            primary: '#2965FF' //class="bg-brand-primary"
-        }
-    },
+  theme: {
+    colors: {
+      // 自定义主题色, 可选
+      primary: '#2965FF' // class="bg-brand-primary"
+    }
+  },
   presets: [
-      presetCx(),
+    presetCx(),
   ],
 })
 ```
@@ -72,20 +73,20 @@ import presetCx from 'unocss-preset-cx'
 import transformerApplet from '@unocss-applet/transformer-applet'
 
 export default defineConfig({
-    theme: {
-        colors: {
-            // 自定义主题色, 可选
-            primary: '#2965FF' //class="bg-brand-primary"
-        }
-    },
-    presets: [
-        presetCx({
-            uni: {
-                enable: true
-            }
-        })
-    ],
-    transformers: [transformerApplet()]
+  theme: {
+    colors: {
+      // 自定义主题色, 可选
+      primary: '#2965FF' // class="bg-brand-primary"
+    }
+  },
+  presets: [
+    presetCx({
+      uni: {
+        enable: true
+      }
+    })
+  ],
+  transformers: [transformerApplet()]
 })
 ```
 
@@ -93,32 +94,32 @@ export default defineConfig({
 
 ```ts
 export interface PresetCXOption extends PresetOptions {
-    uni?: {
-        /**
+  uni?: {
+    /**
          * 是否为 uni 环境
          *
          * @default false
          */
-        enable?: boolean
-        /**
+    enable?: boolean
+    /**
          *  指定是否为 uni 小程序环境
          *  如果没有指定会根据环境变量 `process.env.UNI_PLATFORM === 'h5'` 检测
          */
-        isH5?: boolean
-        /**
+    isH5?: boolean
+    /**
          * 将 uni-app H5 的单位统一转成 PX
          *
          * @default true
          */
-        transformUniH5PX?: boolean
-    },
-    /**
+    transformUniH5PX?: boolean
+  }
+  /**
      * 支持旧原子式的规则
      *
      * @default false
      */
-    legacySupport?: boolean
-    // 以 r 结尾的 css 类，如何被转为 rem
-    remTransform?: remTransformType
+  legacySupport?: boolean
+  // 以 r 结尾的 css 类，如何被转为 rem
+  remTransform?: remTransformType
 }
 ```

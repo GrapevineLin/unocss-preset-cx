@@ -2,24 +2,6 @@
   "name": "@unocss-cx/monorepo",
   "version": "0.0.3",
   "description": "蝉选 unocss 预设",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "pnpm --filter unocss-preset-cx build",
-    "dev": "pnpm --filter @unocss-preset-cx/example dev",
-    "clean": "rimraf node_modules packages/unocss-preset-cx/node_modules packages/unocss-preset-cx/dist packages/example/node_modules"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GrapevineLin/unocss-preset-cx.git"
@@ -27,13 +9,25 @@
   "keywords": [
     "unocss"
   ],
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.35.2",
-    "@types/node": "^18.13.0",
-    "eslint": "^8.33.0",
-    "rimraf": "^5.0.0",
-    "typescript": "^4.9.5",
-    "unocss": "^0.53.1"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm --filter unocss-preset-cx build",
+    "dev": "pnpm --filter @unocss-preset-cx/example dev",
+    "lint": "eslint --cache .",
+    "lint:fix": "nr lint --fix",
+    "clean": "rimraf node_modules packages/unocss-preset-cx/node_modules packages/unocss-preset-cx/dist packages/example/node_modules"
   },
   "peerDependenciesMeta": {
     "unocss": {
@@ -43,10 +37,26 @@
       "optional": true
     }
   },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.39.1",
+    "@antfu/ni": "^0.21.4",
+    "@types/node": "^18.13.0",
+    "eslint": "8.39.0",
+    "lint-staged": "^13.2.2",
+    "rimraf": "^5.0.0",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^4.9.5",
+    "unocss": "^0.53.1"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "vite": "^4.1.4"
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md}": [
+      "eslint --cache --fix"
+    ]
   }
 }

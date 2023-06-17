@@ -1,13 +1,9 @@
 {
   "name": "unocss-preset-cx",
-  "version": "0.0.3",
   "type": "module",
+  "version": "0.0.3",
   "description": "蝉选 preset for [UnoCSS](https://github.com/unocss/unocss).",
   "author": "GrapevineLin <linyudeng1@gmail.com>",
-  "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub"
-  },
   "license": "MIT",
   "homepage": "https://github.com/GrapevineLin/unocss-preset-cx#readme",
   "repository": {
@@ -24,26 +20,25 @@
     "uni-app"
   ],
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist"
   ],
   "engines": {
     "node": ">=16"
   },
-  "devDependencies": {
-    "typescript": "^4.9.5",
-    "unbuild": "^1.1.1",
-    "webpack-bundle-analyzer": "^4.8.0"
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub"
   },
   "peerDependencies": {
     "unocss": "^0.53.1"
@@ -56,10 +51,15 @@
       "optional": true
     }
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "@unocss/preset-wind": "^0.53.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.1",
+    "webpack-bundle-analyzer": "^4.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
