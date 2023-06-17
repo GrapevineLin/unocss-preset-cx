@@ -1,7 +1,29 @@
 {
   "name": "unocss-preset-cx",
-  "version": "0.0.2",
-  "description": "蝉选 unocss 预设",
+  "version": "0.0.3",
+  "type": "module",
+  "description": "蝉选 preset for [UnoCSS](https://github.com/unocss/unocss).",
+  "author": "GrapevineLin <linyudeng1@gmail.com>",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/GrapevineLin/unocss-preset-cx#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrapevineLin/unocss-preset-cx.git",
+    "directory": "packages/preset-cx"
+  },
+  "bugs": {
+    "url": "https://github.com/GrapevineLin/unocss-preset-cx/issues"
+  },
+  "keywords": [
+    "unocss",
+    "unocss-preset",
+    "uni-app"
+  ],
+  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,23 +40,6 @@
   "engines": {
     "node": ">=16"
   },
-  "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GrapevineLin/unocss-preset-cx.git"
-  },
-  "keywords": [
-    "unocss"
-  ],
-  "author": "reslear <https://github.com/reslear>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GrapevineLin/unocss-preset-cx/issues"
-  },
-  "homepage": "https://github.com/GrapevineLin/unocss-preset-cx#readme",
   "devDependencies": {
     "typescript": "^4.9.5",
     "unbuild": "^1.1.1",

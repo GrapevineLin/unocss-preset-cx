@@ -1,6 +1,6 @@
 {
   "name": "@unocss-cx/monorepo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "蝉选 unocss 预设",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "pnpm --filter unocss-preset-cx build",
     "dev": "pnpm --filter @unocss-preset-cx/example dev",
-    "clean": "rimraf node_modules packages/core/node_modules packages/core/dist packages/example/node_modules"
+    "clean": "rimraf node_modules packages/unocss-preset-cx/node_modules packages/unocss-preset-cx/dist packages/example/node_modules"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,6 @@
   "keywords": [
     "unocss"
   ],
-  "author": "reslear <https://github.com/reslear>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/GrapevineLin/unocss-preset-cx/issues"
-  },
-  "homepage": "https://github.com/GrapevineLin/unocss-preset-cx#readme",
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.2",
     "@types/node": "^18.13.0",
