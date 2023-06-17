@@ -62,8 +62,11 @@ export function presetCx(option: PresetCXOption = {}): Preset {
               if (!position)
                 return { [mop]: `${value}px` }
 
-              if (['x', 'y'].includes(position))
-                return { [mop]: `${position === 'x' ? '' : 0} ${value}px ${position === 'y' ? '' : 0}` }
+              if (position === 'x')
+                return { [`${mop}-left`]: `${value}px`, [`${mop}-right`]: `${value}px` }
+
+              if (position === 'y')
+                return { [`${mop}-top`]: `${value}px`, [`${mop}-bottom`]: `${value}px` }
 
               const marginOrPaddingMap = new Map([
                 ['t', 'top'],
