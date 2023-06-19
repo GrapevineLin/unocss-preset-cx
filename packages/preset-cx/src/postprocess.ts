@@ -1,6 +1,6 @@
 import type { Arrayable, Postprocessor } from 'unocss'
 import { isString } from './utils'
-import type { PresetCXOption, remTransformType } from './index'
+import type { PresetCXOption, RemPxOptions, remTransformType } from './index'
 
 const remRE = /(-?[.\d]+)rem/g
 const rRE = /(-?[.\d]+)r$/
@@ -24,6 +24,22 @@ export const uniAppVue2CssRpxTransform: Postprocessor = (css) => {
     }
   })
 }
+
+function px2rem(value: string, baseFontSize = 16, screenWidth = 375) {
+  return `${+value.slice(0, -2) / (750 / screenWidth) / baseFontSize}rem`
+}
+
+export const px2RemTransform: (remPxOptions: RemPxOptions) => Postprocessor
+    = remPxOptions => (util) => {
+      const rpxRE = /^-?[\.\d]+px$/
+      util.entries.forEach((i) => {
+        const value = i[1]
+        if (value && typeof value === 'string') {
+          if (rpxRE.test(value))
+            i[1] = px2rem(value, remPxOptions.baseFontSize, remPxOptions.screenWidth)
+        }
+      })
+    }
 
 // 将 tailwind 的rem 转为 px
 export const rem2PxTransform: Postprocessor = (util) => {
@@ -71,8 +87,8 @@ export function getPostprocess(option: Required<PresetCXOption>): Arrayable<Post
 
   if (option.uni.enable) {
     // 在 uni-app h5 模式下，将 rpx 转为 px
-    if (option.uni.isH5) {
-      // postprocess.push(uniAppVue2CssRpxTransform)
+    if (option.uni.H5Option!.isH5) {
+      postprocess.push(px2RemTransform(option.uni.H5Option!.transformUniH5PX!))
     }
     else {
       // 在 uni-app 非 H5 模式下，将 px 转为 rpx

@@ -10,5 +10,16 @@ export default defineConfig({
       1200: '1200px',
     },
   },
-  presets: [presetCx()],
+  presets: [presetCx({
+    uni: {
+      enable: false,
+      H5Option: {
+        isH5: false,
+        transformUniH5PX: {
+          baseFontSize: 16,
+          screenWidth: 375,
+        },
+      },
+    },
+  })],
 })

@@ -4,6 +4,20 @@ import { getPostprocess } from './postprocess'
 
 export type remTransformType = (px: number) => number
 
+export interface RemPxOptions {
+  /**
+     * 1rem = n px
+     * @default 16
+     */
+  baseFontSize?: number
+
+  /**
+     * screen width in px
+     * @default 375
+     */
+  screenWidth?: number
+}
+
 export interface PresetCXOption extends PresetOptions {
   uni?: {
     /**
@@ -13,16 +27,24 @@ export interface PresetCXOption extends PresetOptions {
          */
     enable?: boolean
     /**
-         *  指定是否为 uni 小程序环境
-         *  如果没有指定会根据环境变量 `process.env.UNI_PLATFORM === 'h5'` 检测
-         */
-    isH5?: boolean
-    /**
          * 将 uni-app H5 的单位统一转成 PX
          *
          * @default true
          */
     transformUniH5PX?: boolean
+
+    H5Option?: {
+      /**
+           *  指定是否为 uni 小程序环境
+           *  如果没有指定会根据环境变量 `process.env.UNI_PLATFORM === 'h5'` 检测
+           */
+      isH5?: boolean
+      /**
+         * 如何将 uni-app H5 的单位统一转成 REM
+         *
+         */
+      transformUniH5PX?: RemPxOptions
+    }
   }
   /**
      * 支持旧原子式的规则
@@ -38,7 +60,13 @@ export function presetCx(option: PresetCXOption = {}): Preset {
   option.uni ??= {}
   option.legacySupport = option.legacySupport ?? false
   option.uni.enable = option.uni?.enable ?? false
-  option.uni.isH5 = option.uni?.isH5 ?? process.env.UNI_PLATFORM === 'h5'
+  option.uni.H5Option = option.uni?.H5Option ?? {
+    isH5: process.env.UNI_PLATFORM === 'h5',
+    transformUniH5PX: {
+      baseFontSize: 16,
+      screenWidth: 375,
+    },
+  }
   option.uni.transformUniH5PX = option.uni?.transformUniH5PX ?? true
   option.remTransform ??= (px: number) => +(px / (75 * 2) * 4).toFixed(2)
 
