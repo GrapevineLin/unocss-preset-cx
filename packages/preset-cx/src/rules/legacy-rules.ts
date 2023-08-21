@@ -7,7 +7,6 @@ export const legacyRules: Rule[] = [
       const mop = marginOrPadding === 'm' ? 'margin' : 'padding'
       if (!position)
         return { [mop]: `${value}px` }
-
       if (position === 'x')
         return { [`${mop}-left`]: `${value}px`, [`${mop}-right`]: `${value}px` }
 
@@ -41,4 +40,15 @@ export const legacyRules: Rule[] = [
   [/^flex-?(\d+)$/, ([, d]) => ({ flex: d })],
   [/^grid-template-columns-(\d+)$/, ([, d]) => ({ 'grid-template-columns': `repeat(${d}, 1fr)` })],
   [/^grid-gap-?(\d+)$/, ([, d]) => ({ 'grid-gap': `${d}px` })],
+  [
+    /^ellipsis-(\d+)$/,
+    ([, line]) => ({
+      'display': ' -webkit-box',
+      'overflow': 'hidden',
+      'text-overflow': 'ellipsis',
+      'word-break': 'break-all',
+      '-webkit-box-orient': 'vertical',
+      '-webkit-line-clamp': line,
+    }),
+  ],
 ]
