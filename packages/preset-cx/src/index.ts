@@ -1,8 +1,9 @@
-import { type Preset, mergeDeep } from 'unocss'
+import { type Preset } from 'unocss'
 import presetWind from '@unocss/preset-wind'
 import { getPostprocess } from './postprocess'
 import type { PresetCXOption } from './type'
 import { getRules } from './rules'
+import { mergeDeep } from './utils'
 
 const defaultConfig: PresetCXOption = {
   legacySupport: false,
@@ -21,9 +22,7 @@ const defaultConfig: PresetCXOption = {
 }
 
 export function presetCx(option: PresetCXOption = {}): Preset {
-  const userConfig = mergeDeep(option, defaultConfig)
-  // eslint-disable-next-line no-console
-  console.log(userConfig)
+  const userConfig = mergeDeep(defaultConfig, option)
   const theme = userConfig.uni?.enable
     ? {
         // 解决小程序不支持 * 选择器
