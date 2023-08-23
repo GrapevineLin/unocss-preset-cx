@@ -24,22 +24,38 @@ export const legacyRules: Rule[] = [
       return { [`${mop}${joiner}`]: `${value}px` }
     },
   ],
-  [/^fs-?(\d+)(r?)$/, ([, d]) => ({ 'font-size': `${d}px` })],
-  [/^font-weight-(\d+)$/, ([, d]) => ({ ' font-weight': `${d}` })],
+  [/^fs-?(\d+)(r?)$/, ([, d]) => ({ 'font-size': `${d}px` }),
+    { autocomplete: ['fs-<num>', 'fs-<num>r'] },
+  ],
+  [/^font-weight-(\d+)$/, ([, d]) => ({ ' font-weight': `${d}` }),
+    { autocomplete: 'font-weight-<num>' },
+  ],
   [
     /^(lh|line-height)-?(\d+)(p|r)?$/,
     ([, , d, percent]) => ({ 'line-height': `${d}${d === '1' ? '' : percent === 'p' ? '%' : 'px'}` }),
   ],
-  [/^z-?(\d+)$/, ([, index]) => ({ 'z-index': index })],
+  [/^z-?(\d+)$/, ([, index]) => ({ 'z-index': index }),
+    { autocomplete: 'z-<num>' },
+  ],
   [
     /^(border-radius-|br)-?(\d+)(p|r)?$/,
     ([, , d, percent]) => ({ 'border-radius': `${d}${percent === 'p' ? '%' : 'px'}` }),
   ],
-  [/^opacity-?(\d+)$/, ([, d]) => ({ ' opacity': `0.${d}` })],
+  [/^opacity-?(\d+)$/, ([, d]) => ({ ' opacity': `0.${d}` }),
+    { autocomplete: 'opacity-<num>' }],
   [/^c-?([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, ([, color]) => ({ color: `#${color}` })],
   [/^flex-?(\d+)$/, ([, d]) => ({ flex: d })],
   [/^grid-template-columns-(\d+)$/, ([, d]) => ({ 'grid-template-columns': `repeat(${d}, 1fr)` })],
   [/^grid-gap-?(\d+)$/, ([, d]) => ({ 'grid-gap': `${d}px` })],
+  [
+    'ellipsis',
+    {
+      'overflow': 'hidden',
+      'text-overflow': 'ellipsis',
+      'white-space': 'nowrap',
+    },
+    { autocomplete: 'ellipsis' },
+  ],
   [
     /^ellipsis-(\d+)$/,
     ([, line]) => ({
@@ -50,5 +66,6 @@ export const legacyRules: Rule[] = [
       '-webkit-box-orient': 'vertical',
       '-webkit-line-clamp': line,
     }),
+    { autocomplete: 'ellipsis-<num>' },
   ],
 ]
