@@ -11,6 +11,7 @@ const defaultConfig: PresetCXOption = {
     enable: false,
     transformUniH5PX: true,
     H5Option: {
+      // eslint-disable-next-line n/prefer-global/process
       isH5: process.env.UNI_PLATFORM === 'h5',
       transformUniH5PX: {
         baseFontSize: 16,

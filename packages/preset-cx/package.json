@@ -23,8 +23,8 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -41,13 +41,14 @@
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
+    "@unocss/webpack": "^0.55.2",
     "unocss": "^0.55.2"
   },
   "peerDependenciesMeta": {
     "unocss": {
       "optional": true
     },
-    "@unocss/nuxt": {
+    "@unocss/webpack": {
       "optional": true
     }
   },
@@ -56,8 +57,7 @@
   },
   "devDependencies": {
     "typescript": "^4.9.5",
-    "unbuild": "^1.1.1",
-    "webpack-bundle-analyzer": "^4.8.0"
+    "unbuild": "^1.1.1"
   },
   "publishConfig": {
     "access": "public"
