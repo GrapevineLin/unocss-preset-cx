@@ -1,7 +1,7 @@
 {
   "name": "unocss-preset-cx",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "蝉选 preset for [UnoCSS](https://github.com/unocss/unocss).",
   "author": "GrapevineLin <linyudeng1@gmail.com>",
   "license": "MIT",
@@ -41,8 +41,8 @@
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "@unocss/webpack": "^0.55.2",
-    "unocss": "^0.55.2"
+    "@unocss/webpack": "^0.57.1",
+    "unocss": "^0.57.1"
   },
   "peerDependenciesMeta": {
     "unocss": {
@@ -53,7 +53,7 @@
     }
   },
   "dependencies": {
-    "@unocss/preset-wind": "^0.55.2"
+    "@unocss/preset-wind": "^0.57.1"
   },
   "devDependencies": {
     "typescript": "^4.9.5",
