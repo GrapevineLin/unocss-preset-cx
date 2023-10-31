@@ -1,6 +1,6 @@
 import type { Arrayable, Postprocessor } from 'unocss'
 import { isString } from './utils'
-import type { PresetCXOption, RemPxOptions, remTransformType } from './type'
+import type { PresetCXOption, RemPxOptions, remTransformType } from './index'
 
 const remRE = /(-?[.\d]+)rem/g
 const rRE = /(-?[.\d]+)r$/
