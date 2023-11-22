@@ -52,4 +52,10 @@ export interface PresetCXOption extends PresetOptions {
   legacySupport?: boolean
   // 以 r 结尾的 css 类，如何被转为 rem
   remTransform?: remTransformType
+  /**
+       * 是否启用 useRem2PxTransform
+       *
+       * @default true
+       */
+  useRem2PxTransform?: boolean
 }

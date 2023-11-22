@@ -43,7 +43,7 @@ export const px2RemTransform: (remPxOptions: RemPxOptions) => Postprocessor
 
 // 将 tailwind 的rem 转为 px
 export const rem2PxTransform: Postprocessor = (util) => {
-  const unit = util.selector.endsWith('rem') ? 'rem' : 'px'
+  const unit = util.selector.includes('rem') ? 'rem' : 'px'
   util.entries.forEach((i) => {
     const value = i[1]
     if (typeof value === 'string' && remRE.test(value))
@@ -83,7 +83,7 @@ export function getPostprocess(option: Required<PresetCXOption>): Arrayable<Post
   const postprocess: Arrayable<Postprocessor> = []
 
   // 将 tailwind 的rem 转为 px
-  postprocess.push(rem2PxTransform)
+  option.useRem2PxTransform && postprocess.push(rem2PxTransform)
 
   if (option.uni.enable) {
     // 在 uni-app h5 模式下，将 rpx 转为 px
