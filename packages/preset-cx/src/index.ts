@@ -21,6 +21,7 @@ const defaultConfig: PresetCXOption = {
   },
   remTransform: (px: number) => +(px / (75 * 2) * 4).toFixed(2),
   useRem2PxTransform: true,
+  useRemTransform: true,
 }
 
 export function presetCx(option: PresetCXOption = {}): Preset {

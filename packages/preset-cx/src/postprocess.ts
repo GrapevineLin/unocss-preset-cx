@@ -43,6 +43,8 @@ export const px2RemTransform: (remPxOptions: RemPxOptions) => Postprocessor
 
 // 将 tailwind 的rem 转为 px
 export const rem2PxTransform: Postprocessor = (util) => {
+  if (rRE.test(util.selector))
+    return
   const unit = util.selector.includes('rem') ? 'rem' : 'px'
   util.entries.forEach((i) => {
     const value = i[1]
@@ -96,7 +98,7 @@ export function getPostprocess(option: Required<PresetCXOption>): Arrayable<Post
     }
   }
 
-  postprocess.push(remClassTransform(option.remTransform))
+  option.useRemTransform && postprocess.push(remClassTransform(option.remTransform))
 
   return postprocess
 }

@@ -58,4 +58,10 @@ export interface PresetCXOption extends PresetOptions {
        * @default true
        */
   useRem2PxTransform?: boolean
+  /**
+       * 是否启用 useRemTransform
+       *
+       * @default true
+       */
+  useRemTransform?: boolean
 }
