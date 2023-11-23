@@ -1,7 +1,7 @@
 {
   "name": "unocss-preset-cx",
   "type": "module",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "蝉选 preset for [UnoCSS](https://github.com/unocss/unocss).",
   "author": "GrapevineLin <linyudeng1@gmail.com>",
   "license": "MIT",
