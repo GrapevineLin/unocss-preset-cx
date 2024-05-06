@@ -36,7 +36,7 @@ export function presetCx(option: PresetCXOption = {}): Preset {
   return {
     name: 'unocss-preset-cx',
     theme,
-    presets: [presetWind()],
+    presets: [presetWind(option.presetWindOptions)],
     rules: getRules(userConfig),
     shortcuts: [{ 'flex-center': 'flex items-center justify-center' }, { 'flex-center-col': 'flex-center flex-col' }],
     postprocess: getPostprocess(userConfig),

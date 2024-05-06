@@ -1,4 +1,5 @@
 import type { PresetOptions } from 'unocss'
+import { type PresetWindOptions } from '@unocss/preset-wind'
 
 export type remTransformType = (px: number) => number
 
@@ -17,6 +18,7 @@ export interface RemPxOptions {
 }
 
 export interface PresetCXOption extends PresetOptions {
+  presetWindOptions?: PresetWindOptions
   uni?: {
     /**
            * 是否为 uni 环境
