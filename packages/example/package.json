@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.32",
-    "unocss": "^0.55.2",
+    "unocss": "0.61.3",
     "unocss-preset-cx": "workspace: *",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"

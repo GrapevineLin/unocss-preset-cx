@@ -41,8 +41,8 @@
     "dev": "unbuild --stub"
   },
   "peerDependencies": {
-    "@unocss/webpack": "^0.57.7",
-    "unocss": "^0.57.7"
+    "@unocss/webpack": "0.61.3",
+    "unocss": "0.61.3"
   },
   "peerDependenciesMeta": {
     "unocss": {
@@ -53,7 +53,7 @@
     }
   },
   "dependencies": {
-    "@unocss/preset-wind": "^0.57.7"
+    "@unocss/preset-wind": "0.61.3"
   },
   "devDependencies": {
     "typescript": "^4.9.5",
